@@ -7,19 +7,14 @@ var joyMove = Vector2(0,0)
 var cursorAngle = 0
 var joyCursor = Vector2(0,0)
 var mouseHasMoved = false
-
 #state vars
-var focusAbilityPressed = false
 var actionFocusAbility = "focus_ability"
-var attackPressed = false
 var actionAttack = "attack"
-
 #Movement keybinds
 var pressUp
 var pressDown
 var pressLeft
 var pressRight
-
 #joy configs
 var joyPort
 var joyMoveDz
@@ -45,7 +40,6 @@ func default():
 	pressDown = KEY_S
 	pressLeft = KEY_A
 	pressRight = KEY_D
-	
 	#joy configs
 	joyPort = 0      #these should be moved elsewhere
 	joyMoveDz = 0.1
@@ -56,7 +50,6 @@ func default():
 	#Cursor joybinds
 	joyCursorV = 3
 	joyCursorH = 2
-	
 	#state action binds
 	InputMap.action_erase_events(actionFocusAbility)
 	InputMap.action_add_event(actionFocusAbility,create_key_event(KEY_SHIFT))
@@ -102,8 +95,6 @@ func getCursorAngle(position, mouse):
 func _input(event):
 	if(!mouseHasMoved):
 		mouseHasMoved = event is InputEventMouseMotion
-	focusAbilityPressed = Input.get_action_strength(actionFocusAbility) > 0.5
-	attackPressed = Input.get_action_strength(actionAttack) > 0.5
 
 #helpers
 

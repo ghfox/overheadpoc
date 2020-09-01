@@ -22,6 +22,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Controller="*res://Scr/Controller.gd"
+StatStore="*res://Scr/StatStore.gd"
+WeaponStore="*res://Scr/WeaponStore.gd"
 
 [rendering]
 

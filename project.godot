@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Overhead Light Demo"
+config/name="Overhead Light Demo - Trunk"
 run/main_scene="res://Scn/Room.tscn"
 config/icon="res://icon.png"
 

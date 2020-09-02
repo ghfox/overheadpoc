@@ -7,10 +7,14 @@ export var LIFESPAN = 0.5
 var velocity = Vector2(0,0)
 
 func _ready():
+	rotation = DIR
 	velocity = Vector2(cos(DIR),sin(DIR)) * SPEED
 	$Timer.start(LIFESPAN)
-
-func _process(delta):
+	if(randi() % 2 == 1):
+		AudioManager.play(AudioManager.gunshot1)
+	else:
+		AudioManager.play(AudioManager.gunshot2)
+func _physics_process(delta):
 	move_and_collide(velocity * delta)
 
 func _on_Timer_timeout():

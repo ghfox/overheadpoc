@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 Controller="*res://Scr/Controller.gd"
 StatStore="*res://Scr/StatStore.gd"
 WeaponStore="*res://Scr/WeaponStore.gd"
+AudioManager="*res://Scr/AudioManager.gd"
 
 [rendering]
 

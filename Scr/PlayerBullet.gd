@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-export var SPEED = 850
-export var DAM = 100
-export var DIR = 360
-export var LIFESPAN = 0.5
+var SPEED = 850
+var DAM = 100
+var DIR = 360
+var LIFESPAN = 0.5
 var velocity = Vector2(0,0)
 
 func _ready():

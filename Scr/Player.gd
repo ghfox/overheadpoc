@@ -10,7 +10,8 @@ var attackMuzzle
 var focusAbilityPressed = false
 
 func _ready():
-	equipPistol("PeaShooter")
+	equipWeapon("PeaShooter")
+	print(Inventory.pack)
 
 func _process(_delta):
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())
@@ -37,12 +38,14 @@ func _input(_event):
 	
 func focusActive():
 	Engine.time_scale = 0.5
+	AudioManager.repitch()
 
 func focusInactive():
 	Engine.time_scale = 1.0
+	AudioManager.repitch()
 
-func equipPistol(pistol):
-	var p = WeaponStore.p[pistol]
+func equipWeapon(pistol):
+	var p = ItemStore.w[pistol]
 	attackCooldown = p["cooldown"] - (StatStore.SK_PISTOL/10.0)
 	attackDamage = p["damage"]
 	attackMuzzle = p["muzzle"]

@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Ammo",
+"language": "GDScript",
+"path": "res://Classes/Ammo.gd"
+}, {
+"base": "Reference",
+"class": "Magazine",
+"language": "GDScript",
+"path": "res://Classes/Magazine.gd"
+} ]
 _global_script_class_icons={
-
+"Ammo": "",
+"Magazine": ""
 }
 
 [application]
@@ -23,8 +34,9 @@ config/icon="res://icon.png"
 
 Controller="*res://Scr/Controller.gd"
 StatStore="*res://Scr/StatStore.gd"
-WeaponStore="*res://Scr/WeaponStore.gd"
+ItemStore="*res://Scr/ItemStore.gd"
 AudioManager="*res://Scr/AudioManager.gd"
+Inventory="*res://Scr/Inventory.gd"
 
 [rendering]
 

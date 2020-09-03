@@ -2,13 +2,15 @@ extends Reference
 
 class_name Ammo
 
-var type
+const type = "ammo"
+
+var cal
 var subtype =""
 var amount = 0
 
-func _init(ntype,nsubtype):
-	type = ntype
+func _init(ncal,nsubtype):
+	cal = ncal
 	subtype = nsubtype
 
 func _to_string():
-	return "%s%s%s%d" % [type, subtype,":" , amount]
+	return "%s%s%s%d" % [cal, subtype,":" , amount]

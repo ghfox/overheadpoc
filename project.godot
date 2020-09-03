@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Magazine",
 "language": "GDScript",
 "path": "res://Classes/Magazine.gd"
+}, {
+"base": "Reference",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Classes/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Ammo": "",
-"Magazine": ""
+"Magazine": "",
+"Weapon": ""
 }
 
 [application]
@@ -32,11 +38,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Controller="*res://Scr/Controller.gd"
-StatStore="*res://Scr/StatStore.gd"
-ItemStore="*res://Scr/ItemStore.gd"
-AudioManager="*res://Scr/AudioManager.gd"
-Inventory="*res://Scr/Inventory.gd"
+Controller="*res://Singletons/Controller.gd"
+StatStore="*res://Singletons/StatStore.gd"
+ItemStore="*res://Singletons/ItemStore.gd"
+AudioManager="*res://Singletons/AudioManager.gd"
+Inventory="*res://Singletons/Inventory.gd"
 
 [rendering]
 

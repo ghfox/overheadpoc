@@ -2,14 +2,25 @@ extends Reference
 
 class_name Magazine
 
-var type
+const type = "mag"
+
+var cal
 var cap
 var subtype =""
 var store = 0
 
-func _init(ntype,ncap):
-	type = ntype
+func _init(ncal,ncap):
+	cal = ncal
 	cap = ncap
 
+func fillMag(ammo):
+	subtype = ammo.subtype
+	store = ammo.amount
+	ammo.amount -= cap
+	if(ammo.amount < 0):
+		ammo.amount = 0
+	else:
+		store -= ammo.amount
+
 func _to_string():
-	return "%s%s%d%s%d" % [type, " Mag: ", store, "/" , cap]
+	return "%s%s%d%s%s%d" % [cal, " Mag: ", store, subtype, "/", cap]

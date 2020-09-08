@@ -6,6 +6,7 @@ var pointsArcInner = []
 var time = 2.5
 var complete = 0
 var incolor = Color.yellow
+var swap = true
 
 func _ready():
 	$Timer.start(time)
@@ -41,5 +42,8 @@ func _process(_delta):
 		reload()
 
 func reload():
-	print("a reload should occur")
+	if(swap):
+		Inventory.swapForNextMag()
+	else:
+		Inventory.loadNextMag()
 	call_deferred("free")

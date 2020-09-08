@@ -34,6 +34,12 @@ func baseAmmo():
 	dam += tDict["dam"]
 	muzzle += tDict["spd"]
 
+func fire():
+	if(curMag.store > 0):
+		curMag.store -= 1
+		return true
+	return false
+
 func addMag(mag):
 	if(mag.cal == cal):
 		curMag = mag

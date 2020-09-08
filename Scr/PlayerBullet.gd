@@ -19,3 +19,4 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	get_parent().remove_child(self)
+	call_deferred("free")

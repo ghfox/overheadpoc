@@ -2,13 +2,16 @@ extends KinematicBody2D
 
 var move = Vector2(0,0)
 var playerBullet = preload("res://Scn/PlayerBullet.tscn")
+var reloadAnim = preload("res://Scn/ReloadAnim.tscn")
 
 var focusAbilityPressed = false
 
 func _ready():
+	Inventory.player = self
 	print(Inventory.pack)
 	print(Inventory.pocket)
 	print(Inventory.hand)
+
 func _process(_delta):
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())
 	move = Controller.getMove() * (StatStore.MAX_SPEED)
@@ -32,9 +35,16 @@ func attack():
 func _input(_event):
 	if(Input.is_action_just_pressed(Controller.actionFocusAbility)):
 		focusActive()
-	if(Input.is_action_just_released(Controller.actionFocusAbility)):
+	elif(Input.is_action_just_released(Controller.actionFocusAbility)):
 		focusInactive()
-	
+	elif(Input.is_action_just_pressed(Controller.actionReload)):
+		reload()
+
+func reload():
+	print("reload")
+	var reload = reloadAnim.instance()
+	get_parent().get_node("LayerUnMod").add_child(reload)
+
 func focusActive():
 	Engine.time_scale = 0.5
 	AudioManager.repitch()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scn/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scn/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Spr/background.png" type="Texture" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scn/BlinkingLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scn/ReloadAnim.tscn" type="PackedScene" id=6]
 
 [node name="Room" type="Node2D"]
 
@@ -30,25 +31,25 @@ position = Vector2( 315.378, 507.896 )
 scale = Vector2( 5.02537, 2.66855 )
 texture = ExtResource( 4 )
 
-[node name="Walls" type="Node2D" parent="."]
+[node name="Wall" type="Node2D" parent="."]
 
-[node name="Wall" parent="Walls" instance=ExtResource( 2 )]
+[node name="Wall" parent="Wall" instance=ExtResource( 2 )]
 position = Vector2( 729.176, 262.246 )
 
-[node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
+[node name="Wall2" parent="Wall" instance=ExtResource( 2 )]
 position = Vector2( 179.222, 274.26 )
 
-[node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
+[node name="Wall3" parent="Wall" instance=ExtResource( 2 )]
 position = Vector2( 503.71, 413.922 )
 rotation = -0.698505
 scale = Vector2( 4.21804, -0.32468 )
 
-[node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
+[node name="Wall4" parent="Wall" instance=ExtResource( 2 )]
 position = Vector2( 598.864, 509.149 )
 rotation = -0.698505
 scale = Vector2( 4.21804, -0.32468 )
 
-[node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
+[node name="Wall5" parent="Wall" instance=ExtResource( 2 )]
 position = Vector2( 364.105, 604.244 )
 rotation = -0.0226519
 scale = Vector2( 4.21804, -0.32468 )
@@ -59,7 +60,7 @@ position = Vector2( 413.377, 136.853 )
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="BlinkingLight2" parent="Lights" instance=ExtResource( 5 )]
-position = Vector2( 724.288, 369.057 )
+position = Vector2( 704.071, 328.624 )
 scale = Vector2( 0.379221, 0.370944 )
 
 [node name="BlinkingLight" parent="Lights" instance=ExtResource( 5 )]
@@ -67,4 +68,10 @@ position = Vector2( 204.451, 179.782 )
 scale = Vector2( 0.379221, 0.370944 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+color = Color( 0.164706, 0.164706, 0.164706, 1 )
+
+[node name="LayerUnMod" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="ReloadAnim" parent="LayerUnMod" instance=ExtResource( 6 )]
+position = Vector2( 574.387, 123.678 )

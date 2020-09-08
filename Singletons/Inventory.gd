@@ -8,6 +8,7 @@ var Nothing = preload("res://Classes/Nothing.gd")
 var pack = {}
 var pocket = [Nothing.new(),Nothing.new(),Nothing.new(),Nothing.new()]
 var hand = Nothing.new()
+var player
 
 #remember all built-in types are passed as value, EXCEPT arrays & dicts
 

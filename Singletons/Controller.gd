@@ -10,6 +10,7 @@ var mouseHasMoved = false
 #state vars
 var actionFocusAbility = "focus_ability"
 var actionAttack = "attack"
+var actionReload = "reload"
 #Movement keybinds
 var pressUp
 var pressDown
@@ -29,6 +30,7 @@ var joyCursorH
 func _ready():
 	InputMap.add_action(actionFocusAbility)
 	InputMap.add_action(actionAttack)
+	InputMap.add_action(actionReload)
 	#we should check for a config file here.
 	default()
 	pass
@@ -57,6 +59,9 @@ func default():
 	InputMap.action_erase_events(actionAttack)
 	InputMap.action_add_event(actionAttack,create_mouse_event(BUTTON_LEFT))
 	InputMap.action_add_event(actionAttack,create_axis_event(7))
+	InputMap.action_erase_events(actionReload)
+	InputMap.action_add_event(actionReload,create_key_event(KEY_R))
+	InputMap.action_add_event(actionReload,create_joy_event(2))
 
 #Player called funcs
 

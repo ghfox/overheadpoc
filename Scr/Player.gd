@@ -5,6 +5,8 @@ var playerBullet = preload("res://Scn/PlayerBullet.tscn")
 var reloadAnim = preload("res://Scn/ReloadAnim.tscn")
 
 var focusAbilityPressed = false
+var reloading = false
+var reloader = null
 
 func _ready():
 	Inventory.player = self
@@ -13,8 +15,9 @@ func _process(_delta):
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())
 	move = Controller.getMove() * (StatStore.MAX_SPEED)
 	move_and_slide(move)
-	if(Input.get_action_strength(Controller.actionAttack) > 0.5):
-		attack()
+	if(!reloading):
+		if(Input.get_action_strength(Controller.actionAttack) > 0.5):
+			attack()
 
 func attack():
 	if($Shottimer.time_left == 0):
@@ -45,10 +48,13 @@ func _input(_event):
 		reload()
 
 func reload():
-	print("reload")
-	if(Inventory.findNextMag()):
-		var reload = reloadAnim.instance()
-		get_parent().get_node("LayerUnMod").add_child(reload)
+	if(reloading):
+		reloader.skip()
+	else:
+		if(Inventory.findNextMag()):
+			reloading = true
+			reloader = reloadAnim.instance()
+			get_parent().get_node("LayerUnMod").add_child(reloader)
 
 func focusActive():
 	Engine.time_scale = 0.5

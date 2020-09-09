@@ -7,6 +7,9 @@ var time = 2.5
 var complete = 0
 var incolor = Color.yellow
 var swap = true
+var skipTo = 0.66
+
+#couples hard with player
 
 func _ready():
 	$Timer.start(time)
@@ -46,4 +49,10 @@ func reload():
 		Inventory.swapForNextMag()
 	else:
 		Inventory.loadNextMag()
+	Inventory.player.reloading = false
 	call_deferred("free")
+
+func skip():
+	if($Timer.time_left/time > skipTo):
+		$Timer.start((1.0-skipTo) * time)
+		swap = false

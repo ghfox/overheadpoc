@@ -22,6 +22,7 @@ func _ready():
 	}
 	pack["ammo"][0].amount += 25
 	pack["mag"][0].fillMag(pack["ammo"][0])
+	pack["mag"][2].fillMag(pack["ammo"][0])
 	pack["mag"][1].fillMag(pack["ammo"][0])
 	moveToPocketFromPack(pack["mag"][0],0)
 	loadFromPocket(pack["weapon"][0],0)

@@ -1,5 +1,7 @@
 extends Node
 
+var res = "res://Spr/Items/"
+
 var w = {
 	"PeaShooter" : {
 		"name" : "PeaShooter",
@@ -19,12 +21,17 @@ var m = {
 	}
 }
 
+func getAmmoSprite(cal,subtype):
+	var sprite = "%s%s" % [res,b[cal][subtype]["sprite"]]
+	return sprite
+
 var b = {
 	"9mm" : {
 		"fmj" : {
 			"dam" : 1,
 			"pen" : 40,
-			"spd" : 50
+			"spd" : 50,
+			"sprite" : "9mmfmjbox.png"
 		}, 
 		"hp" : {
 			"dam" : 45,

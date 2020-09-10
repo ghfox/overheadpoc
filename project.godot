@@ -9,24 +9,42 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Item",
 "class": "Ammo",
 "language": "GDScript",
 "path": "res://Classes/Ammo.gd"
 }, {
 "base": "Reference",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Classes/Item.gd"
+}, {
+"base": "Area2D",
+"class": "ItemPickup",
+"language": "GDScript",
+"path": "res://Classes/ItemPickup.gd"
+}, {
+"base": "Item",
 "class": "Magazine",
 "language": "GDScript",
 "path": "res://Classes/Magazine.gd"
 }, {
 "base": "Reference",
+"class": "Nothing",
+"language": "GDScript",
+"path": "res://Classes/Nothing.gd"
+}, {
+"base": "Item",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://Classes/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Ammo": "",
+"Item": "",
+"ItemPickup": "",
 "Magazine": "",
+"Nothing": "",
 "Weapon": ""
 }
 

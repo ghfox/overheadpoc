@@ -5,7 +5,7 @@ var SK_PISTOL
 
 func _ready():
 	base()
-	pass # Replace with function body.
+	pass
 
 func base():
 	MAX_SPEED = 250

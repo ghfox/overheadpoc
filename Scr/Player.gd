@@ -10,6 +10,8 @@ var reloader = null
 
 func _ready():
 	Inventory.player = self
+	var new = ItemPickup.new(Ammo.new("9mm","fmj",10))
+	get_parent().call_deferred("add_child_below_node",self,new)
 
 func _process(_delta):
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())
@@ -63,3 +65,7 @@ func focusActive():
 func focusInactive():
 	Engine.time_scale = 1.0
 	AudioManager.repitch()
+
+
+func _on_Detector_area_entered(area):
+		print(area.get_parent())

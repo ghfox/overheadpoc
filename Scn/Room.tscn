@@ -9,6 +9,7 @@
 [node name="Room" type="Node2D"]
 
 [node name="Floor" type="Node2D" parent="."]
+z_index = -1
 
 [node name="bg" type="Sprite" parent="Floor"]
 position = Vector2( 507.906, 307.013 )

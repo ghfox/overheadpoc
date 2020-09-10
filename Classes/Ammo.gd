@@ -1,4 +1,4 @@
-extends Reference
+extends Item
 
 class_name Ammo
 
@@ -8,9 +8,12 @@ var cal
 var subtype =""
 var amount = 0
 
-func _init(ncal,nsubtype):
+func _init(ncal,nsubtype, namount):
 	cal = ncal
 	subtype = nsubtype
+	amount = namount
+	sprite = ItemStore.getAmmoSprite(cal,subtype)
+	radius = 32
 
 func _to_string():
 	return "%s%s%s%d" % [cal, subtype,":" , amount]

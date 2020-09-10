@@ -1,4 +1,4 @@
-extends Reference
+extends Item
 
 class_name Magazine
 

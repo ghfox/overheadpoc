@@ -1,10 +1,5 @@
 extends Node
 
-var Ammo = preload("res://Classes/Ammo.gd")
-var Magazine = preload("res://Classes/Magazine.gd")
-var Weapon = preload("res://Classes/Weapon.gd")
-var Nothing = preload("res://Classes/Nothing.gd")
-
 var pack = {}
 var pocket = [Nothing.new(),Nothing.new(),Nothing.new(),Nothing.new()]
 var hand = Nothing.new()
@@ -18,9 +13,8 @@ func _ready():
 	pack = {
 		"weapon" : [Weapon.new("PeaShooter")],
 		"mag" : [Magazine.new("9mm",10),Magazine.new("9mm",10),Magazine.new("9mm",10)],
-		"ammo" : [Ammo.new("9mm","fmj")]
+		"ammo" : [Ammo.new("9mm","fmj",25)]
 	}
-	pack["ammo"][0].amount += 25
 	pack["mag"][0].fillMag(pack["ammo"][0])
 	pack["mag"][2].fillMag(pack["ammo"][0])
 	pack["mag"][1].fillMag(pack["ammo"][0])

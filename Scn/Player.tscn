@@ -25,6 +25,7 @@ shape = SubResource( 2 )
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 1 )
 color = Color( 0.847059, 1, 0.996078, 1 )
+range_height = 341.0
 shadow_enabled = true
 
 [node name="Sprite" type="Sprite" parent="Light2D"]

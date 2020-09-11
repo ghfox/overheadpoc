@@ -17,5 +17,6 @@ func _ready():
 	add_child(collider)
 	var spr = Sprite.new()
 	spr.set_texture(load(item.sprite))
+	spr.normal_map = load("res://Spr/Items/boxNormal.png")
 	add_child(spr)
 	pass

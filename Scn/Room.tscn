@@ -68,7 +68,7 @@ position = Vector2( 204.451, 179.782 )
 scale = Vector2( 0.379221, 0.370944 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.164706, 0.164706, 0.164706, 1 )
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [node name="LayerUnMod" type="CanvasLayer" parent="."]
 follow_viewport_enable = true

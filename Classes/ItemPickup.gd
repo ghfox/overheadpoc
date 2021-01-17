@@ -3,6 +3,7 @@ extends Area2D
 class_name ItemPickup
 
 var item
+var spr
 
 func _init(newItem):
 	item = newItem
@@ -15,8 +16,16 @@ func _ready():
 	circ.set_radius(item.radius)
 	collider.set_shape(circ)
 	add_child(collider)
-	var spr = Sprite.new()
+	spr = Sprite.new()
 	spr.set_texture(load(item.sprite))
-	spr.normal_map = load("res://Spr/Items/boxNormal.png")
+	spr.normal_map = load(item.normal)
 	add_child(spr)
+	set_name("%s%s" % ["ItemPickup-",item])
+	add_to_group("Grabables", false)
 	pass
+
+func turnOnOutline():
+	spr.set_material(load("res://Shaders/outline.tres"))
+
+func turnOffOutline():
+	spr.set_material(null)

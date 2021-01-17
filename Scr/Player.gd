@@ -8,9 +8,18 @@ var focusAbilityPressed = false
 var reloading = false
 var reloader = null
 
+var canGrab = null
+
 func _ready():
 	Inventory.player = self
-	var new = ItemPickup.new(Ammo.new("9mm","fmj",10))
+	
+	#ItemPick test garbage
+	var new 
+	new = ItemPickup.new(Ammo.new("9mm","fmj",10))
+	new.position.x = -20 
+	get_parent().call_deferred("add_child_below_node",self,new)
+	new = ItemPickup.new(Ammo.new("9mm","fmj",10))
+	new.position.x = 40 
 	get_parent().call_deferred("add_child_below_node",self,new)
 
 func _process(_delta):
@@ -20,6 +29,8 @@ func _process(_delta):
 	if(!reloading):
 		if(Input.get_action_strength(Controller.actionAttack) > 0.5):
 			attack()
+	if(canGrab != null):
+		updateGrabs()
 
 func attack():
 	if($Shottimer.time_left == 0):
@@ -68,4 +79,28 @@ func focusInactive():
 
 
 func _on_Detector_area_entered(area):
-		print(area.get_parent())
+	if(area.is_in_group("Grabables")):
+		area.add_to_group("GrabNows")
+	updateGrabs()
+
+func _on_Detector_area_exited(area):
+	if(area.is_in_group("Grabables")):
+		area.remove_from_group("GrabNows")
+
+func updateGrabs():
+	var nearest = null
+	var dist = 999
+	var tdist
+	for n in get_tree().get_nodes_in_group("GrabNows"):
+		tdist = position.distance_to(n.position)
+		if(dist > tdist):
+			dist = tdist
+			nearest = n
+	if(nearest != canGrab):
+		if(canGrab != null):
+			canGrab.turnOffOutline()
+		canGrab = nearest
+		if(canGrab != null):
+			canGrab.turnOnOutline()
+	
+	

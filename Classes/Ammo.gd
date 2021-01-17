@@ -13,6 +13,7 @@ func _init(ncal,nsubtype, namount):
 	subtype = nsubtype
 	amount = namount
 	sprite = ItemStore.getAmmoSprite(cal,subtype)
+	normal = ItemStore.getAmmoNormal(cal,subtype)
 	radius = 32
 
 func _to_string():

@@ -43,3 +43,4 @@ drag_margin_bottom = 0.0
 wait_time = 0.001
 one_shot = true
 [connection signal="area_entered" from="Detector" to="." method="_on_Detector_area_entered"]
+[connection signal="area_exited" from="Detector" to="." method="_on_Detector_area_exited"]

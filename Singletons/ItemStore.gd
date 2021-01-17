@@ -25,13 +25,17 @@ func getAmmoSprite(cal,subtype):
 	var sprite = "%s%s" % [res,b[cal][subtype]["sprite"]]
 	return sprite
 
+func getAmmoNormal(cal,subtype):
+	var normal = "%s%s" % [res, "boxNormal.png"]
+	return normal
+
 var b = {
 	"9mm" : {
 		"fmj" : {
 			"dam" : 1,
 			"pen" : 40,
 			"spd" : 50,
-			"sprite" : "9mmfmjbox.png"
+			"sprite" : "9mmfmjbox.png",
 		}, 
 		"hp" : {
 			"dam" : 45,

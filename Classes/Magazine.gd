@@ -9,9 +9,11 @@ var cap
 var subtype =""
 var store = 0
 
-func _init(ncal,ncap):
-	cal = ncal
-	cap = ncap
+func _init(type):
+	cal = ItemStore.getMagCal(type)
+	cap = ItemStore.getMagCap(type)
+	sprite = ItemStore.getMagSprite(type)
+	normal = ItemStore.getMagNormal(type)
 
 func fillMag(ammo):
 	subtype = ammo.subtype

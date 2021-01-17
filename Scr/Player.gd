@@ -21,6 +21,9 @@ func _ready():
 	new = ItemPickup.new(Ammo.new("9mm","fmj",10))
 	new.position.x = 40 
 	get_parent().call_deferred("add_child_below_node",self,new)
+	new = ItemPickup.new(Magazine.new("9mm 10rd Mag"))
+	new.position.x = 5 
+	get_parent().call_deferred("add_child_below_node",self,new)
 
 func _process(_delta):
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())

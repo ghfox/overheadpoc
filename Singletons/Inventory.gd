@@ -12,7 +12,7 @@ var reloadCursor = -1
 func _ready():
 	pack = {
 		"weapon" : [Weapon.new("PeaShooter")],
-		"mag" : [Magazine.new("9mm",10),Magazine.new("9mm",10),Magazine.new("9mm",10)],
+		"mag" : [Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag")],
 		"ammo" : [Ammo.new("9mm","fmj",25)]
 	}
 	pack["mag"][0].fillMag(pack["ammo"][0])

@@ -14,10 +14,26 @@ var w = {
 	}
 }
 
+func getMagSprite(type):
+	var sprite = "%s%s" % [res,m[type]["sprite"]]
+	return sprite
+
+func getMagNormal(type):
+	var normal = "%s%s" % [res,m[type]["normal"]]
+	return normal
+
+func getMagCal(type):
+	return m[type]["cal"]
+
+func getMagCap(type):
+	return m[type]["cap"]
+
 var m = {
 	"9mm 10rd Mag" : {
 		"cal" : "9mm",
-		"cap" : 10
+		"cap" : 10,
+		"sprite" : "smallMag.png",
+		"normal" : "smallMagNormal.png"
 	}
 }
 
@@ -26,7 +42,7 @@ func getAmmoSprite(cal,subtype):
 	return sprite
 
 func getAmmoNormal(cal,subtype):
-	var normal = "%s%s" % [res, "boxNormal.png"]
+	var normal = "%s%s" % [res,b[cal][subtype]["normal"]]
 	return normal
 
 var b = {
@@ -36,16 +52,21 @@ var b = {
 			"pen" : 40,
 			"spd" : 50,
 			"sprite" : "9mmfmjbox.png",
+			"normal" : "boxNormal.png"
 		}, 
 		"hp" : {
 			"dam" : 45,
 			"pen" : 20,
-			"spd" : 1
+			"spd" : 1,
+			
+			"normal" : "boxNormal.png"
 		},
 		 "fluted" : {
 			"dam" : 35,
 			"pen" : 30,
-			"spd" : 50
+			"spd" : 50,
+			
+			"normal" : "boxNormal.png"
 		}
 	} 
 }

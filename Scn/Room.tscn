@@ -55,7 +55,7 @@ rotation = -0.0226519
 scale = Vector2( 4.21804, -0.32468 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 413.377, 136.853 )
+position = Vector2( 392.164, 150.995 )
 
 [node name="Lights" type="Node2D" parent="."]
 
@@ -68,7 +68,4 @@ position = Vector2( 204.451, 179.782 )
 scale = Vector2( 0.379221, 0.370944 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.372549, 0.372549, 0.372549, 1 )
-
-[node name="LayerUnMod" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
+color = Color( 0.729412, 0.729412, 0.729412, 1 )

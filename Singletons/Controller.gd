@@ -11,6 +11,9 @@ var mouseHasMoved = false
 var actionFocusAbility = "focus_ability"
 var actionAttack = "attack"
 var actionReload = "reload"
+#Action vars
+var nextPocket = "next_pocket"
+var prevPocket = "prev_pocket"
 #Movement keybinds
 var pressUp
 var pressDown
@@ -31,6 +34,9 @@ func _ready():
 	InputMap.add_action(actionFocusAbility)
 	InputMap.add_action(actionAttack)
 	InputMap.add_action(actionReload)
+	
+	InputMap.add_action(nextPocket)
+	InputMap.add_action(prevPocket)
 	#we should check for a config file here.
 	default()
 	pass
@@ -55,14 +61,19 @@ func default():
 	#state action binds
 	InputMap.action_erase_events(actionFocusAbility)
 	InputMap.action_add_event(actionFocusAbility,create_key_event(KEY_SHIFT))
-	InputMap.action_add_event(actionFocusAbility,create_joy_event(4))
+	InputMap.action_add_event(actionFocusAbility,create_joy_event(JOY_BUTTON_4))
 	InputMap.action_erase_events(actionAttack)
 	InputMap.action_add_event(actionAttack,create_mouse_event(BUTTON_LEFT))
-	InputMap.action_add_event(actionAttack,create_axis_event(7))
+	InputMap.action_add_event(actionAttack,create_axis_event(JOY_R2))
 	InputMap.action_erase_events(actionReload)
 	InputMap.action_add_event(actionReload,create_key_event(KEY_R))
-	InputMap.action_add_event(actionReload,create_joy_event(2))
-
+	InputMap.action_add_event(actionReload,create_joy_event(JOY_BUTTON_2))
+	#Action binds
+	InputMap.action_erase_events(prevPocket)
+	InputMap.action_add_event(prevPocket,create_joy_event(JOY_DPAD_LEFT))
+	InputMap.action_erase_events(nextPocket)
+	InputMap.action_add_event(nextPocket,create_joy_event(JOY_DPAD_RIGHT))
+	InputMap.action_add_event(nextPocket,create_key_event(KEY_TAB))
 #Player called funcs
 
 func getMove():

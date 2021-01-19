@@ -10,22 +10,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PocketGrid" type="GridContainer" parent="."]
+[node name="PocketGrid" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -100.0
 margin_right = 400.0
-columns = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Inventory" type="GridContainer" parent="."]
+[node name="Inventory" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -100.0
 margin_right = 400.0
-columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}

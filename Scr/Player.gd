@@ -62,6 +62,9 @@ func _input(_event):
 		focusInactive()
 	elif(Input.is_action_just_pressed(Controller.actionReload)):
 		reload()
+	elif(Input.is_action_just_pressed(Controller.nextPocket)):
+		Inventory.nextPocket()
+		get_node("GUI/HUD").updateSelectedPocket()
 
 func reload():
 	if(reloading):

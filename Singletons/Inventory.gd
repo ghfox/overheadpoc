@@ -4,6 +4,7 @@ var pack = {}
 var pocket = [Nothing.new(),Nothing.new(),Nothing.new(),Nothing.new()]
 var hand = Nothing.new()
 var player
+var selectedPocket = 0
 
 var reloadCursor = -1
 
@@ -24,6 +25,10 @@ func _ready():
 	moveToPocketFromPack(pack["mag"][0],1)
 	equip(pack["weapon"],0)
 	
+func nextPocket():
+	selectedPocket += 1
+	if(selectedPocket == pocket.size()):
+		selectedPocket = 0
 
 func equip(group, idx):
 	hand = group[idx]

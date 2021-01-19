@@ -62,6 +62,10 @@ ItemStore="*res://Singletons/ItemStore.gd"
 AudioManager="*res://Singletons/AudioManager.gd"
 Inventory="*res://Singletons/Inventory.gd"
 
+[display]
+
+window/stretch/aspect="keep"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

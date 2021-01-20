@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Spr/Items/smallMag.png" type="Texture" id=1]
 [ext_resource path="res://Scr/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Spr/Gui/gui_pocket.png" type="Texture" id=3]
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -19,8 +21,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="PocketGrid"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
 [node name="Inventory" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -100.0
 margin_right = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Inventory"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 1 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

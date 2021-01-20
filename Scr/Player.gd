@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var HUD
+
 var move = Vector2(0,0)
 var playerBullet = preload("res://Scn/PlayerBullet.tscn")
 var reloadAnim = preload("res://Scn/ReloadAnim.tscn")
@@ -11,6 +13,7 @@ var reloader = null
 var canGrab = null
 
 func _ready():
+	HUD = get_node("GUI/HUD")
 	Inventory.player = self
 	
 	#ItemPick test garbage
@@ -64,7 +67,7 @@ func _input(_event):
 		reload()
 	elif(Input.is_action_just_pressed(Controller.nextPocket)):
 		Inventory.nextPocket()
-		get_node("GUI/HUD").updateSelectedPocket()
+		HUD.updateSelectedPocket()
 
 func reload():
 	if(reloading):
@@ -108,5 +111,3 @@ func updateGrabs():
 		canGrab = nearest
 		if(canGrab != null):
 			canGrab.turnOnOutline()
-	
-	

@@ -50,6 +50,7 @@ func reload():
 	else:
 		Inventory.loadNextMag()
 	Inventory.player.reloading = false
+	Inventory.player.HUD.updatePocketGrid()
 	call_deferred("free")
 
 func skip():

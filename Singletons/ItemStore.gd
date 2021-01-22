@@ -2,15 +2,23 @@ extends Node
 
 var res = "res://Spr/Items/"
 
+var s_cal = "cal"
+var s_sprite = "sprite"
+var s_normal = "normal"
+var s_spd = "spd"
+var s_dam = "dam"
+var s_pen = "pen"
+
+
 var w = {
 	"PeaShooter" : {
 		"name" : "PeaShooter",
 		"cat" : "pistol",
-		"cal" : "9mm",
+		s_cal : "9mm",
 		"cooldown" : 0.6,
-		"dam" : 50,
+		s_dam : 50,
 		"topoff" : false,
-		"spd" : 850
+		s_spd : 850
 	}
 }
 
@@ -30,10 +38,10 @@ func getMagCap(type):
 
 var m = {
 	"9mm 10rd Mag" : {
-		"cal" : "9mm",
+		s_cal : "9mm",
 		"cap" : 10,
-		"sprite" : "smallMag.png",
-		"normal" : "smallMagNormal.png"
+		s_sprite : "smallMag.png",
+		s_normal : "smallMagNormal.png"
 	}
 }
 
@@ -48,25 +56,25 @@ func getAmmoNormal(cal,subtype):
 var b = {
 	"9mm" : {
 		"fmj" : {
-			"dam" : 1,
-			"pen" : 40,
-			"spd" : 50,
-			"sprite" : "9mmfmjbox.png",
-			"normal" : "boxNormal.png"
+			s_dam : 1,
+			s_pen : 40,
+			s_spd : 50,
+			s_sprite : "9mmfmjbox.png",
+			s_normal : "boxNormal.png"
 		}, 
 		"hp" : {
-			"dam" : 45,
-			"pen" : 20,
-			"spd" : 1,
+			s_dam : 45,
+			s_pen : 20,
+			s_spd : 1,
 			
-			"normal" : "boxNormal.png"
+			s_normal : "boxNormal.png"
 		},
 		 "fluted" : {
-			"dam" : 35,
-			"pen" : 30,
-			"spd" : 50,
+			s_dam : 35,
+			s_pen : 30,
+			s_spd : 50,
 			
-			"normal" : "boxNormal.png"
+			s_normal : "boxNormal.png"
 		}
 	} 
 }

@@ -68,6 +68,21 @@ func _input(_event):
 	elif(Input.is_action_just_pressed(Controller.nextPocket)):
 		Inventory.nextPocket()
 		HUD.updateSelectedPocket()
+	elif(Input.is_action_just_pressed(Controller.actionPickup)):
+		grabItem()
+
+func grabItem():
+	if(canGrab != null):
+		var pickup = canGrab
+		canGrab = null
+		var p = Inventory.findEmptyPocket()
+		if(p  > -1):
+			Inventory.moveToPocket(pickup.item,p)
+			HUD.updatePocketGrid()
+		else:
+			Inventory.addToPack(pickup.item)
+		pickup.free()
+		updateGrabs()
 
 func reload():
 	if(reloading):
@@ -85,7 +100,6 @@ func focusActive():
 func focusInactive():
 	Engine.time_scale = 1.0
 	AudioManager.repitch()
-
 
 func _on_Detector_area_entered(area):
 	if(area.is_in_group("Grabables")):

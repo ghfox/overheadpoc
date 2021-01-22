@@ -8,7 +8,7 @@ var oldSelIdx = 0
 
 func _ready():
 	updatePocketGrid()
-	updateSelectedPocket()
+	
 	pass
 
 func updatePocketGrid():
@@ -20,6 +20,7 @@ func updatePocketGrid():
 		if(p.type != Nothing.type):
 			makePocketPart(p.sprite, "Inventory", margin)
 		margin += pocketMargin
+	updateSelectedPocket()
 
 func deleteChildren(node):
 	for n in node.get_children():

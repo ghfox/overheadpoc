@@ -11,6 +11,7 @@ var mouseHasMoved = false
 var actionFocusAbility = "focus_ability"
 var actionAttack = "attack"
 var actionReload = "reload"
+var actionPickup = "pickup"
 #Action vars
 var nextPocket = "next_pocket"
 var prevPocket = "prev_pocket"
@@ -34,6 +35,7 @@ func _ready():
 	InputMap.add_action(actionFocusAbility)
 	InputMap.add_action(actionAttack)
 	InputMap.add_action(actionReload)
+	InputMap.add_action(actionPickup)
 	
 	InputMap.add_action(nextPocket)
 	InputMap.add_action(prevPocket)
@@ -68,6 +70,9 @@ func default():
 	InputMap.action_erase_events(actionReload)
 	InputMap.action_add_event(actionReload,create_key_event(KEY_R))
 	InputMap.action_add_event(actionReload,create_joy_event(JOY_BUTTON_2))
+	InputMap.action_erase_events(actionPickup)
+	InputMap.action_add_event(actionPickup,create_key_event(KEY_E))
+	InputMap.action_add_event(actionPickup,create_joy_event(JOY_BUTTON_0))
 	#Action binds
 	InputMap.action_erase_events(prevPocket)
 	InputMap.action_add_event(prevPocket,create_joy_event(JOY_DPAD_LEFT))
@@ -93,7 +98,7 @@ func getMove():
 	return move.normalized()
 
 #pass object position and viewport mouse coords
-#returns relative angle of mouse or stick dependingf on mouseHasMoved flag
+#returns relative angle of mouse or stick depending on mouseHasMoved flag
 func getCursorAngle(position, mouse):
 	joyCursor.x = Input.get_joy_axis(joyPort,joyCursorH)
 	joyCursor.y = Input.get_joy_axis(joyPort,joyCursorV)

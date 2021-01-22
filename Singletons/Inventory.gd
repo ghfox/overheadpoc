@@ -12,9 +12,9 @@ var reloadCursor = -1
 
 func _ready():
 	pack = {
-		"weapon" : [Weapon.new("PeaShooter")],
-		"mag" : [Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag")],
-		"ammo" : [Ammo.new("9mm","fmj",25)]
+		Weapon.type : [Weapon.new("PeaShooter")],
+		Magazine.type : [Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag"),Magazine.new("9mm 10rd Mag")],
+		Ammo.type : [Ammo.new("9mm","fmj",25)]
 	}
 	pack["mag"][0].fillMag(pack["ammo"][0])
 	pack["mag"][2].fillMag(pack["ammo"][0])
@@ -35,6 +35,8 @@ func equip(group, idx):
 	group.remove(idx)
 	reloadCursor = -1
 
+func addToPack(item):
+	pack[item.type].push_back(item)
 
 func moveToPocketFromPack(item, pockIdx):
 	if(pocket[pockIdx].type != "null"):
@@ -42,11 +44,18 @@ func moveToPocketFromPack(item, pockIdx):
 	pocket[pockIdx] = item
 	pack[item.type].remove(pack[item.type].find(item,0))
 
-
 func moveToPocket(item, pockIdx):
 	if(pocket[pockIdx].type != "null"):
 		return false
 	pocket[pockIdx] = item
+
+func findEmptyPocket():
+	var found = -1
+	for p in pocket:
+		found += 1
+		if(p.type == Nothing.type):
+			return found
+	return -1
 
 
 #														MAGAZINE RELATED Methods

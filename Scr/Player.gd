@@ -12,6 +12,8 @@ var reloader = null
 
 var canGrab = null
 
+var userInInventory = false
+
 func _ready():
 	HUD = get_node("GUI/HUD")
 	Inventory.player = self
@@ -29,6 +31,8 @@ func _ready():
 	get_parent().call_deferred("add_child_below_node",self,new)
 
 func _process(_delta):
+	if(userInInventory): 
+		return			#for now let's abort all inputs if inventory
 	rotation = Controller.getCursorAngle(get_global_position(),get_global_mouse_position())
 	move = Controller.getMove() * (StatStore.MAX_SPEED)
 	move_and_slide(move)
@@ -59,6 +63,8 @@ func spawnBullet(hand):
 	get_parent().add_child_below_node(self,newBullet)
 
 func _input(_event):
+	if(userInInventory):
+		return
 	if(Input.is_action_just_pressed(Controller.actionFocusAbility)):
 		focusActive()
 	elif(Input.is_action_just_released(Controller.actionFocusAbility)):
@@ -70,6 +76,11 @@ func _input(_event):
 		HUD.updateSelectedPocket()
 	elif(Input.is_action_just_pressed(Controller.actionPickup)):
 		grabItem()
+	elif(Input.is_action_just_released(Controller.inventory)):
+		enterInventory()
+
+func enterInventory():
+	userInInventory = true
 
 func grabItem():
 	if(canGrab != null):

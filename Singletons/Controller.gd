@@ -12,9 +12,11 @@ var actionFocusAbility = "focus_ability"
 var actionAttack = "attack"
 var actionReload = "reload"
 var actionPickup = "pickup"
+
 #Action vars
 var nextPocket = "next_pocket"
 var prevPocket = "prev_pocket"
+var inventory = "inventory"
 #Movement keybinds
 var pressUp
 var pressDown
@@ -39,6 +41,7 @@ func _ready():
 	
 	InputMap.add_action(nextPocket)
 	InputMap.add_action(prevPocket)
+	InputMap.add_action(inventory)
 	#we should check for a config file here.
 	default()
 	pass
@@ -79,6 +82,8 @@ func default():
 	InputMap.action_erase_events(nextPocket)
 	InputMap.action_add_event(nextPocket,create_joy_event(JOY_DPAD_RIGHT))
 	InputMap.action_add_event(nextPocket,create_key_event(KEY_TAB))
+	InputMap.action_add_event(inventory,create_key_event(KEY_QUOTELEFT))
+	InputMap.action_add_event(inventory,create_joy_event(JOY_SELECT))
 #Player called funcs
 
 func getMove():
